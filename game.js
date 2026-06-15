@@ -318,7 +318,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       return;
     }
-    if (event.key === "Enter") {
+    if (event.key === "Enter" || event.key == " ") {
       processInput();
     } else if (event.key === "Backspace" || event.key === "Delete") {
       handleBackspaceOrDelete();
