@@ -1,4 +1,4 @@
-console.log("game.js loaded!");
+console.log("Ricky and Janell are a bunch of ding dongs");
 
 // ===== GAME PARAMETERS =====
 const INITIAL_TIMER = 150; // Timer value (100 steps * 100ms = 10s)
@@ -14,6 +14,58 @@ const MULTI_ADD = 0.5; // How much the score multiplier grows
 // ============================
 
 const dictionary = new Set();
+const letterScores = {
+  A: 1,
+  B: 3,
+  C: 3,
+  D: 2,
+  E: 1,
+  F: 4,
+  G: 2,
+  H: 4,
+  I: 1,
+  J: 8,
+  K: 5,
+  L: 1,
+  M: 3,
+  N: 1,
+  O: 1,
+  P: 3,
+  Q: 10,
+  R: 1,
+  S: 1,
+  T: 1,
+  U: 1,
+  V: 4,
+  W: 4,
+  X: 8,
+  Y: 4,
+  Z: 10,
+};
+const consonants = [
+  "B",
+  "C",
+  "D",
+  "F",
+  "G",
+  "H",
+  "J",
+  "K",
+  "L",
+  "M",
+  "N",
+  "P",
+  "Q",
+  "R",
+  "S",
+  "T",
+  "V",
+  "W",
+  "X",
+  "Y",
+  "Z",
+];
+const vowels = ["A", "E", "I", "O", "U"];
 
 function flashInvalidWord() {
   const textField = document.getElementById("input-display");
@@ -82,35 +134,6 @@ function updateMultiDisplay() {
   multiDisplay.textContent = "Multiplier: " + multiplier + "x";
 }
 
-const letterScores = {
-  A: 1,
-  B: 3,
-  C: 3,
-  D: 2,
-  E: 1,
-  F: 4,
-  G: 2,
-  H: 4,
-  I: 1,
-  J: 8,
-  K: 5,
-  L: 1,
-  M: 3,
-  N: 1,
-  O: 1,
-  P: 3,
-  Q: 10,
-  R: 1,
-  S: 1,
-  T: 1,
-  U: 1,
-  V: 4,
-  W: 4,
-  X: 8,
-  Y: 4,
-  Z: 10,
-};
-
 function buildWeightedArray(letters) {
   let arr = [];
   for (let letter of letters) {
@@ -123,29 +146,6 @@ function buildWeightedArray(letters) {
 }
 
 function generateLetters() {
-  const consonants = [
-    "B",
-    "C",
-    "D",
-    "F",
-    "G",
-    "H",
-    "J",
-    "K",
-    "L",
-    "M",
-    "N",
-    "P",
-    "Q",
-    "R",
-    "S",
-    "T",
-    "V",
-    "W",
-    "X",
-    "Y",
-    "Z",
-  ];
   const vowels = ["A", "E", "I", "O", "U"];
 
   const weightedConsonants = buildWeightedArray(consonants);
@@ -195,30 +195,6 @@ function displayLetters(letters) {
 }
 
 function generateRandomLetter(type) {
-  const consonants = [
-    "B",
-    "C",
-    "D",
-    "F",
-    "G",
-    "H",
-    "J",
-    "K",
-    "L",
-    "M",
-    "N",
-    "P",
-    "Q",
-    "R",
-    "S",
-    "T",
-    "V",
-    "W",
-    "X",
-    "Y",
-    "Z",
-  ];
-  const vowels = ["A", "E", "I", "O", "U"];
   const weightedConsonants = buildWeightedArray(consonants);
   const weightedVowels = buildWeightedArray(vowels);
   if (type === "vowel") {
@@ -257,7 +233,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const restartBtn = document.getElementById("restart-btn");
   restartBtn.addEventListener("click", restartGame);
 
-  // Allow Tab to focus restart when visible; and Enter/Space
+  // Allow Space to restart
   restartBtn.addEventListener("keydown", function (e) {
     if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
@@ -335,8 +311,8 @@ document.addEventListener("DOMContentLoaded", () => {
   function handleKeyDown(event) {
     if (gameOver) {
       // Make sure Tab goes to the restart button
-      const isTab = event.key === "Tab";
-      if (isTab) {
+      const isSpace = event.key === " ";
+      if (isSpace) {
         restartGame();
         event.preventDefault();
       }
