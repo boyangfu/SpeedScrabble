@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wordle-like Game</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="game-container">
+      <div id="timer-time"></div>
+      <div id="timer-bar-container">
+        <div id="timer-bar"></div>
+      </div>
+      <div id="consonant-tiles"></div>
+      <div id="vowel-tiles"></div>
+      <div id="input-display"></div>
+      <div id="score-display">Score: 0 <span id="score-bonus"></span></div>
+      <div id="multiplier-display">Multiplier: 1x</div>
+      <button id="restart-btn" class="hidden" tabindex="0">
+        Restart (Tab)
+      </button>
+    </div>
+    <script src="game.js"></script>
+  </body>
+</html>
