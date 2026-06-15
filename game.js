@@ -29,7 +29,7 @@ function flashInvalidWord() {
 // Load dictionary from file
 async function loadDictionary() {
   try {
-    const response = await fetch("dictionary.txt");
+    const response = await fetch("./dictionary.txt");
     const text = await response.text();
     const words = text.split("\n").map((word) => word.trim());
     words.forEach((word) => dictionary.add(word.toUpperCase()));
